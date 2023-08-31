@@ -11,8 +11,6 @@ public partial class Cart
 
     public int CustomerId { get; set; }
 
-    public int ProductId { get; set; }
-
     public bool? IsPaied { get; set; }
 
     public virtual Customer? Customer { get; set; }
