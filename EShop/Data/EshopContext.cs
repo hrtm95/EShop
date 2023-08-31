@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using EShop.Models;
+using EShop.Domain.Entity;
 using Microsoft.EntityFrameworkCore;
 
 namespace EShop.Data;
@@ -22,17 +22,13 @@ public partial class EshopContext : DbContext
 
     public virtual DbSet<Category> Categories { get; set; }
 
-    public virtual DbSet<CategoryProduct> CategoryProducts { get; set; }
-
     public virtual DbSet<Customer> Customers { get; set; }
 
-    public virtual DbSet<Invoice> Invoices { get; set; }
 
     public virtual DbSet<Picture> Pictures { get; set; }
 
     public virtual DbSet<Product> Products { get; set; }
 
-    public virtual DbSet<ProductCart> ProductCarts { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.

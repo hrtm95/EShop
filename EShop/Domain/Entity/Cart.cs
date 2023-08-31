@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace EShop.Models;
+namespace EShop.Domain.Entity;
 
 public partial class Cart
 {
