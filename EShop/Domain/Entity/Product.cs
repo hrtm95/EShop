@@ -15,8 +15,6 @@ public partial class Product
 
     public int CategoryId { get; set; }
 
-    public int? IsExist { get; set; }
-
     public int? Quntity { get; set; }
 
     public virtual ICollection<Picture> Pictures { get; set; } = new List<Picture>();

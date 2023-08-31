@@ -32,7 +32,7 @@ public partial class EshopContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("server=.;database=EShop;user id=sa;password=123;Trusted_Connection=True;TrustServerCertificate=True;Integrated Security = true;");
+        => optionsBuilder.UseSqlServer("server=.;database=EShop;user id=Alireza;password=8900988900;Trusted_Connection=True;TrustServerCertificate=True;Integrated Security = true;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
