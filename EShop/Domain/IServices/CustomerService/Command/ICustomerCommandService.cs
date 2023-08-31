@@ -7,6 +7,6 @@ namespace EShop.Domain.IServices.CustomerService.Command
     {
         Task<bool> EditProfile(CustomerEditDto customer);
         Task<bool> PayByCustomerId(int customerId);
-
+        Task<bool> AddPicture(int PictureId, int item);
     }
 }

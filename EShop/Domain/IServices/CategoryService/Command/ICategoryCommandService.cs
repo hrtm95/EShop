@@ -7,5 +7,6 @@ namespace EShop.Domain.IServices.CategoryService.Command
         Task<bool> CreateCategory(CategoryAddDto category);
         Task<bool> EditCategory(CategoryEditDto category);
         Task<bool> DeleteCategory(int catrguryId);
+        Task<bool> AddPicture(int PictureId, int item);
     }
 }
