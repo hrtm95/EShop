@@ -11,7 +11,7 @@ public partial class Customer
 
     public string? LastName { get; set; }
 
-    public bool? IsActive { get; set; }
+    public bool? IsActive { get; set; } = true;
 
     public string? Address { get; set; }
 
