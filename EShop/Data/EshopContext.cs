@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using EShop.Domain.Entity;
 using Microsoft.EntityFrameworkCore;
-
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 namespace EShop.Data;
 
-public partial class EshopContext : DbContext
+public partial class EshopContext : IdentityDbContext<User, Role, string>
 {
     public EshopContext()
     {
@@ -16,20 +16,20 @@ public partial class EshopContext : DbContext
     {
     }
 
-    public virtual DbSet<Admin> Admins { get; set; }
+    public DbSet<Admin> Admins { get; set; }
 
-    public virtual DbSet<Cart> Carts { get; set; }
+    public DbSet<Cart> Carts { get; set; }
 
-    public virtual DbSet<Category> Categories { get; set; }
+    public DbSet<Category> Categories { get; set; }
 
-    public virtual DbSet<Customer> Customers { get; set; }
-
-
-    public virtual DbSet<Picture> Pictures { get; set; }
-
-    public virtual DbSet<Product> Products { get; set; }
+    public DbSet<Customer> Customers { get; set; }
 
 
+    public  DbSet<Picture> Pictures { get; set; }
+
+    public  DbSet<Product> Products { get; set; }
+
+   
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
         => optionsBuilder.UseSqlServer("server=.;database=EShop;user id=Alireza;password=8900988900;Trusted_Connection=True;TrustServerCertificate=True;Integrated Security = true;");
