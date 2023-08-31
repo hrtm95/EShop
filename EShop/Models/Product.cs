@@ -21,4 +21,5 @@ public partial class Product
 
     public virtual ICollection<Picture> Pictures { get; set; } = new List<Picture>();
     public virtual ICollection<Cart> Carts { get; set; } = new List<Cart>();
+    public virtual ICollection<Category> Categories { get; set; } = new List<Category>();
 }

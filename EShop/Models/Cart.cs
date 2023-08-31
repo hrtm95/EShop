@@ -16,4 +16,5 @@ public partial class Cart
     public bool? IsPaied { get; set; }
 
     public virtual Customer? Customer { get; set; }
+    public virtual ICollection<Product> Products { get; set; } = new List<Product>();
 }
