@@ -1,4 +1,4 @@
-﻿using EShop.Domain.DTOs;
+﻿using EShop.Domain.DTOs.Customer;
 using EShop.Domain.Entity;
 
 namespace EShop.Domain.IServices.CustomerService.Command

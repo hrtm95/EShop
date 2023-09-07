@@ -1,6 +1,6 @@
-﻿namespace EShop.Domain.DTOs
+﻿namespace EShop.Domain.DTOs.Customer
 {
-    public class CustomerOutPutDto
+    public class CustomerEditDto
     {
         public int Id { get; set; }
 

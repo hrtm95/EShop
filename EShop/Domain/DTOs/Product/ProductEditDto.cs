@@ -1,7 +1,9 @@
-﻿namespace EShop.Domain.DTOs
+﻿namespace EShop.Domain.DTOs.Product
 {
-    public class ProductAddDto
+    public class ProductEditDto
     {
+        public int Id { get; set; }
+
         public string Name { get; set; } = null!;
 
         public string? Description { get; set; }

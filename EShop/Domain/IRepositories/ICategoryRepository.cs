@@ -1,4 +1,5 @@
 ﻿using EShop.Domain.DTOs;
+using EShop.Domain.DTOs.Category;
 
 namespace EShop.Domain.IRepositories
 {

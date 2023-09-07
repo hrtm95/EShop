@@ -1,4 +1,5 @@
 ﻿using EShop.Domain.DTOs;
+using EShop.Domain.DTOs.Product;
 
 namespace EShop.Domain.IRepositories
 {
@@ -8,6 +9,6 @@ namespace EShop.Domain.IRepositories
         Task<GeneralDto<bool>> Update(ProductEditDto product);
         Task<GeneralDto<bool>> Delete(int productId);
         Task<GeneralDto<ProductOutPutDto>> GetById(int productId);
-        Task<GeneralDto<List<ProductOutPutDto>>> GetAll();
+        Task<List<ProductOutPutDto>> GetAll();
     }
 }

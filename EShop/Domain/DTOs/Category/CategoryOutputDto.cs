@@ -1,4 +1,4 @@
-﻿namespace EShop.Domain.DTOs
+﻿namespace EShop.Domain.DTOs.Category
 {
     public class CategoryOutputDto
     {

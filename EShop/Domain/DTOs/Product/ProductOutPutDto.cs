@@ -1,4 +1,6 @@
-﻿namespace EShop.Domain.DTOs
+﻿using EShop.Domain.Entity;
+
+namespace EShop.Domain.DTOs.Product
 {
     public class ProductOutPutDto
     {
@@ -13,5 +15,6 @@
         public int CategoryId { get; set; }
 
         public int? Quntity { get; set; }
-    }
+        public Category { get; set; }
+}
 }

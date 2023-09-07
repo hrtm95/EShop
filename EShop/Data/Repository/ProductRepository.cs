@@ -1,6 +1,8 @@
 ﻿using EShop.Domain.DTOs;
+using EShop.Domain.DTOs.Product;
 using EShop.Domain.Entity;
 using EShop.Domain.IRepositories;
+using Microsoft.EntityFrameworkCore;
 
 namespace EShop.Data.Repository;
 
@@ -41,9 +43,21 @@ public class ProductRepository : IProductRepository
 
     }
 
-    public Task<GeneralDto<List<ProductOutPutDto>>> GetAll()
+    public async Task<List<ProductOutPutDto>> GetAll()
     {
-        throw new NotImplementedException();
+        var products = _context.Products.Include(c => c.Categories).AsNoTracking().ToList();
+
+        var products2 = _context.Products.Include(c => c.Categories).Select(p => new ProductOutPutDto { 
+            Id = p.Id,
+            Name = p.Name,
+            Description = p.Description,
+            Quntity = p.Quntity,
+            CategoryId = p.CategoryId,
+            Price = p.Price,
+            Category = p.Categories
+        });
+        return products2.ToList();
+
     }
 
     public Task<GeneralDto<ProductOutPutDto>> GetById(int productId)

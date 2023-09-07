@@ -1,4 +1,4 @@
-﻿namespace EShop.Domain.DTOs
+﻿namespace EShop.Domain.DTOs.Picture
 {
     public class PictureEditDto
     {

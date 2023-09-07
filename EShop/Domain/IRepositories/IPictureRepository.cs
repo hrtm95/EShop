@@ -1,4 +1,5 @@
 ﻿using EShop.Domain.DTOs;
+using EShop.Domain.DTOs.Picture;
 using EShop.Domain.Entity;
 
 namespace EShop.Domain.IRepositories

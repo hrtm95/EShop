@@ -1,4 +1,5 @@
 ﻿using EShop.Domain.DTOs;
+using EShop.Domain.DTOs.Cart;
 using EShop.Domain.IRepositories;
 
 namespace EShop.Data.Repository

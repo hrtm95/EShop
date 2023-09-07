@@ -1,4 +1,4 @@
-﻿using EShop.Domain.DTOs;
+﻿using EShop.Domain.DTOs.Cart;
 
 namespace EShop.Domain.IServices.CartService.Queries
 {

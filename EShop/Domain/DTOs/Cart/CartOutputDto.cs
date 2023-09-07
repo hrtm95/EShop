@@ -1,6 +1,6 @@
 ﻿using EShop.Domain.Entity;
 
-namespace EShop.Domain.DTOs
+namespace EShop.Domain.DTOs.Cart
 {
     public class CartOutputDto
     {
