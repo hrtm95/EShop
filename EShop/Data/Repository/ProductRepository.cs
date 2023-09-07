@@ -1,14 +1,31 @@
 ﻿using EShop.Domain.DTOs;
+using EShop.Domain.Entity;
 using EShop.Domain.IRepositories;
 
 namespace EShop.Data.Repository;
 
 public class ProductRepository : IProductRepository
 {
-    public Task<GeneralDto<bool>> Create(ProductAddDto product)
-    {
+    private readonly EshopContext _context;
 
-        throw new NotImplementedException();
+    public ProductRepository(EshopContext context)
+    {
+        _context = context;
+    }
+
+    public async Task<GeneralDto<bool>> Create(ProductAddDto productdto)
+    {
+        var product = new Product() {
+            Name = productdto.Name,
+            Description = productdto.Description,
+            Price = productdto.Price,
+            Quntity = productdto.Quntity,
+            CategoryId = productdto.CategoryId,
+        };
+        await _context.Products.AddAsync(product);
+        await _context.SaveChangesAsync();
+        return new GeneralDto<bool> { Id = product.Id, Data = Product };
+        
     }
 
     public Task<GeneralDto<bool>> Delete(int productId)
