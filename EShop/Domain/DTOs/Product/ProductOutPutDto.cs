@@ -1,4 +1,5 @@
-﻿using EShop.Domain.Entity;
+﻿using EShop.Domain.DTOs.Category;
+using EShop.Domain.Entity;
 
 namespace EShop.Domain.DTOs.Product
 {
@@ -15,6 +16,6 @@ namespace EShop.Domain.DTOs.Product
         public int CategoryId { get; set; }
 
         public int? Quntity { get; set; }
-        public Category { get; set; }
+        public List<GeneralCategoryDto> Category { get; set; }
 }
 }

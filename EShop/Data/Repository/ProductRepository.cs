@@ -1,8 +1,10 @@
 ﻿using EShop.Domain.DTOs;
+using EShop.Domain.DTOs.Category;
 using EShop.Domain.DTOs.Product;
 using EShop.Domain.Entity;
 using EShop.Domain.IRepositories;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Cryptography;
 
 namespace EShop.Data.Repository;
 
@@ -45,28 +47,51 @@ public class ProductRepository : IProductRepository
 
     public async Task<List<ProductOutPutDto>> GetAll()
     {
-        var products = _context.Products.Include(c => c.Categories).AsNoTracking().ToList();
-
-        var products2 = _context.Products.Include(c => c.Categories).Select(p => new ProductOutPutDto { 
+        var products = _context.Products.AsNoTracking().Include(c => c.Categories).Select(p => new ProductOutPutDto { 
             Id = p.Id,
             Name = p.Name,
             Description = p.Description,
             Quntity = p.Quntity,
             CategoryId = p.CategoryId,
             Price = p.Price,
-            Category = p.Categories
+            Category = p.Categories.Select(C => new GeneralCategoryDto { Name = C.Name, Description = C.Description}).ToList(),
         });
-        return products2.ToList();
+
+        return products.ToList();
 
     }
 
-    public Task<GeneralDto<ProductOutPutDto>> GetById(int productId)
+    public async Task<ProductOutPutDto> GetById(int productId)
     {
-        throw new NotImplementedException();
+        var product = await _context.Products.FirstOrDefaultAsync(p => p.Id == productId);
+        var output = new ProductOutPutDto
+        {
+            Id = product.Id,
+            Name = product.Name,
+            Description = product.Description,
+            Quntity = product.Quntity,
+            CategoryId = product.CategoryId,
+            Price = product.Price,
+        };
+        return output;
     }
 
-    public Task<GeneralDto<bool>> Update(ProductEditDto product)
+    public async Task<GeneralDto<bool>> Update(ProductEditDto productdto)
     {
-        throw new NotImplementedException();
+        var entity = _context.Products.Find(productdto.Id);
+
+            entity.Name = productdto.Name;
+            entity.Description = productdto.Description;
+            entity.Price = productdto.Price;
+            entity.Quntity = productdto.Quntity;
+            entity.CategoryId = productdto.CategoryId;
+
+        _context.Entry(entity).State = EntityState.Modified;
+        int number = await _context.SaveChangesAsync();
+        if (number == 0)
+        {
+            return new GeneralDto<bool> { Id = entity.Id, Data = false };
+        }
+        return new GeneralDto<bool> { Id = entity.Id, Data = true };
     }
 }

@@ -8,7 +8,7 @@ namespace EShop.Domain.IRepositories
         Task<GeneralDto<bool>> Create(ProductAddDto product);
         Task<GeneralDto<bool>> Update(ProductEditDto product);
         Task<GeneralDto<bool>> Delete(int productId);
-        Task<GeneralDto<ProductOutPutDto>> GetById(int productId);
+        Task<ProductOutPutDto> GetById(int productId);
         Task<List<ProductOutPutDto>> GetAll();
     }
 }
