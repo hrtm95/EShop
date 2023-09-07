@@ -24,13 +24,21 @@ public class ProductRepository : IProductRepository
         };
         await _context.Products.AddAsync(product);
         await _context.SaveChangesAsync();
-        return new GeneralDto<bool> { Id = product.Id, Data = Product };
+        return new GeneralDto<bool> { Id = product.Id, Data = true};
         
     }
 
-    public Task<GeneralDto<bool>> Delete(int productId)
-    {
-        throw new NotImplementedException();
+    public async Task<GeneralDto<bool>> Delete(int productId)    {
+
+        var product  = await _context.Products.FindAsync(productId);
+        product.IsDeleted = true;
+        int number = await _context.SaveChangesAsync();
+        if (number == 0)
+        {
+            return new GeneralDto<bool> { Id = product.Id, Data = false };
+        }
+        return new GeneralDto<bool> { Id = product.Id, Data = true };
+
     }
 
     public Task<GeneralDto<List<ProductOutPutDto>>> GetAll()

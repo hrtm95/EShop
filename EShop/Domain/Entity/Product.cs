@@ -17,6 +17,8 @@ public partial class Product
 
     public int? Quntity { get; set; }
 
+    public bool IsDeleted { get; set; } = false;
+
     public virtual ICollection<Picture> Pictures { get; set; } = new List<Picture>();
     public virtual ICollection<Cart> Carts { get; set; } = new List<Cart>();
     public virtual ICollection<Category> Categories { get; set; } = new List<Category>();
