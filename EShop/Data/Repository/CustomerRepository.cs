@@ -1,24 +1,62 @@
 ﻿using EShop.Domain.DTOs;
+using EShop.Domain.DTOs.Category;
 using EShop.Domain.DTOs.Customer;
+using EShop.Domain.DTOs.Product;
+using EShop.Domain.Entity;
 using EShop.Domain.IRepositories;
+using Microsoft.EntityFrameworkCore;
 
 namespace EShop.Data.Repository
 {
     public class CustomerRepository : ICustomerRepository
     {
-        public Task<GeneralDto<bool>> Create(CustomerAddDto customer)
+        private readonly EshopContext _context;
+
+        public CustomerRepository(EshopContext context)
         {
-            throw new NotImplementedException();
+            _context = context;
         }
 
-        public Task<GeneralDto<bool>> Delete(int customerId)
+        public async Task<GeneralDto<bool>> Create(CustomerAddDto customerDto)
         {
-            throw new NotImplementedException();
+
+            var customer = new Customer()
+            {
+                Name = customerDto.Name,
+                LastName = customerDto.LastName,
+                IsActive = true,
+                Address = customerDto.Address,
+            };
+            await _context.Customers.AddAsync(customer);
+            await _context.SaveChangesAsync();
+            return new GeneralDto<bool> { Id = customer.Id, Data = true };
         }
 
-        public Task<GeneralDto<List<CustomerOutPutDto>>> GetAll()
+        public async Task<GeneralDto<bool>> Delete(int id)
         {
-            throw new NotImplementedException();
+            var customer = await _context.Customers.FindAsync(id);
+            customer.IsDeleted = true;
+            int number = await _context.SaveChangesAsync();
+            if (number == 0)
+            {
+                return new GeneralDto<bool> { Id = id, Data = false };
+            }
+            return new GeneralDto<bool> { Id = id, Data = true };
+        }
+
+        public async Task<List<CustomerOutPutDto>> GetAll()
+        {
+            var category = await _context.Customers.AsNoTracking()
+                .Select(p => new CustomerOutPutDto
+                {
+                    Id = p.Id,
+                    Name = p.Name,
+                    LastName = p.LastName,
+                    Address = p.Address,
+
+                }).ToListAsync();
+
+            return category;
         }
 
         public Task<GeneralDto<CustomerOutPutDto>> GetById(int customerId)
@@ -26,9 +64,19 @@ namespace EShop.Data.Repository
             throw new NotImplementedException();
         }
 
-        public Task<GeneralDto<bool>> Update(CustomerEditDto customer)
+        public async Task<GeneralDto<bool>> Update(CustomerEditDto dto)
         {
-            throw new NotImplementedException();
+            var entity = _context.Customers.Find(dto.Id);
+            entity.Name = dto.Name;
+            entity.LastName = dto.LastName;
+            entity.Address = dto.Address;
+            _context.Entry(entity).State = EntityState.Modified;
+            int number = await _context.SaveChangesAsync();
+            if (number == 0)
+            {
+                return new GeneralDto<bool> { Id = entity.Id, Data = false };
+            }
+            return new GeneralDto<bool> { Id = entity.Id, Data = true };
         }
     }
 }

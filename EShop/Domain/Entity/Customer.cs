@@ -14,6 +14,7 @@ public partial class Customer
     public bool? IsActive { get; set; } = true;
 
     public string? Address { get; set; }
-
+     
+    public bool IsDeleted { get; set; }
     public virtual Cart IdNavigation { get; set; } = null!;
 }

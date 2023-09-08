@@ -10,6 +10,6 @@ namespace EShop.Domain.IRepositories
         Task<GeneralDto<bool>> Update(CustomerEditDto customer);
         Task<GeneralDto<bool>> Delete(int customerId);
         Task<GeneralDto<CustomerOutPutDto>> GetById(int customerId);
-        Task<GeneralDto<List<CustomerOutPutDto>>> GetAll();
+        Task<List<CustomerOutPutDto>> GetAll();
     }
 }

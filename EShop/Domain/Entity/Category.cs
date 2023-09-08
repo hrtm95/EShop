@@ -10,5 +10,7 @@ public partial class Category
     public string? Name { get; set; }
 
     public string? Description { get; set; }
+
+    public bool IsDeleted { get; set; }
     public virtual ICollection<Product> Products { get; set; } = new List<Product>();
 }
