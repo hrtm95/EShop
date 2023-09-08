@@ -3,6 +3,7 @@ using EShop.Domain.DTOs.Product;
 using EShop.Domain.Entity;
 using EShop.Domain.IRepositories;
 using EShop.Domain.IServices.ProductService.Commands;
+using System.Net.Http.Headers;
 
 namespace EShop.Domain.Services.Product.Command
 {
@@ -10,7 +11,7 @@ namespace EShop.Domain.Services.Product.Command
     {
         private readonly IProductRepository productRepository;
         private readonly ICartRepository cartRepository;
-        public ProductCommandServices(IProductRepository productRepository ,ICartRepository cartRepository)
+        public ProductCommandServices(IProductRepository productRepository, ICartRepository cartRepository)
         {
             this.productRepository = productRepository;
             this.cartRepository = cartRepository;
@@ -92,20 +93,46 @@ namespace EShop.Domain.Services.Product.Command
         public async Task<bool> DeleteProductFromCart(int cartId, int productId)
         {
             var product = await productRepository.GetById(productId);
-            var cart = await productRepository.GetById(cartId);
+            var cart = await cartRepository.GetById(cartId);
             if (cart != null)
             {
-                
+                var number = cart.Products.Where(x => x.Id == productId).Count();
+                var productRemove = cart.Products.FirstOrDefault(x => x.Id == productId);
+
+                cart.Products.Remove(productRemove);
+                if (number == 1)
+                {
+                    await cartRepository.Update(new CartEditDto
+                    {
+                        Id = cart.Id,
+                        CustomerId = cart.CustomerId,
+                        IsPaied = false,
+                        Quntity = cart.Quntity - 1,
+                        productDtos=cart.Products
+                    });
+                }
+                else
+                {
+                    await cartRepository.Update(new CartEditDto
+                    {
+                        Id = cart.Id,
+                        CustomerId = cart.CustomerId,
+                        IsPaied = false,
+                        Quntity = cart.Quntity,
+                        productDtos = cart.Products
+                    });
+                }
             }
             else
             {
                 return false;
             }
+            return false;
         }
 
         public Task<bool> EditeProduct(ProductEditDto product)
         {
-            throw new NotImplementedException();
+           throw new NotImplementedException();
         }
     }
 }

@@ -1,18 +1,25 @@
 using EShop.Data;
+using EShop.Data.Repository;
 using EShop.Domain.Entity;
+using EShop.Domain.IRepositories;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Routing.Tree;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
+
+builder.Services.AddDbContext<EshopContext>(opt =>
+{
+    opt.UseSqlServer("server=.;database=EShopOne;user id=sa;password=sks@1111;Trusted_Connection=True;TrustServerCertificate=True;Integrated Security = true;");
+});
 builder.Services.AddIdentity<User, Role>()
 .AddEntityFrameworkStores<EshopContext>()
 .AddDefaultTokenProviders()
 .AddRoles<Role>();
-
-var app = builder.Build();
 builder.Services.Configure<IdentityOptions>(option =>
 {
     //UserSetting
@@ -48,6 +55,8 @@ builder.Services.ConfigureApplicationCookie(option =>
     option.AccessDeniedPath = "/Account/AccessDenied";
     option.SlidingExpiration = true;
 });
+var app = builder.Build();
+
 
 
 
@@ -63,8 +72,18 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+//app.MapControllerRoute(
+//    name: "default",
+//    pattern: "{controller=Home}/{action=Index}/{id?}");
 
+//app.UseEndpoints(endpoints =>
+//{
+//    endpoints.MapControllerRoute(
+//      name: "Admin",
+//      pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+//    );
+//});
+app.MapControllerRoute(
+name: "Admin",
+pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
 app.Run();
