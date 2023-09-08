@@ -1,34 +1,92 @@
 ﻿using EShop.Domain.DTOs;
 using EShop.Domain.DTOs.Cart;
+using EShop.Domain.DTOs.Category;
+using EShop.Domain.DTOs.Product;
+using EShop.Domain.Entity;
 using EShop.Domain.IRepositories;
+using Microsoft.EntityFrameworkCore;
 
 namespace EShop.Data.Repository
 {
     public class CartRepository : ICartRepository
     {
-        public Task<GeneralDto<bool>> Create(CartAddDto cart)
+        private readonly EshopContext _context;
+
+        public CartRepository(EshopContext context)
         {
-            throw new NotImplementedException();
+            _context = context;
+        }
+        public async Task<GeneralDto<bool>> Create(CartAddDto cartdto)
+        {
+            var cart = new Cart()
+            {
+                Quntity = cartdto.Quntity,
+                CustomerId = cartdto.CustomerId,
+                IsPaied = cartdto.IsPaied,
+               
+            };
+            await _context.Carts.AddAsync(cart);    
+            await _context.SaveChangesAsync();
+            return new GeneralDto<bool> { Id = cart.Id, Data = true };
         }
 
-        public Task<GeneralDto<bool>> Delete(int cartId)
+        public async Task<GeneralDto<bool>> Delete(int cartId)
         {
-            throw new NotImplementedException();
+            var cart = await _context.Carts.FindAsync(cartId);
+            cart.IsDeleted = true;
+            int number = await _context.SaveChangesAsync();
+            if (number == 0)
+            {
+                return new GeneralDto<bool> { Id = cartId, Data = false };
+            }
+            return new GeneralDto<bool> { Id = cartId, Data = true };
         }
 
-        public Task<GeneralDto<List<CartOutputDto>>> GetAll()
+        public async Task<List<CartOutputDto>> GetAll()
         {
-            throw new NotImplementedException();
+            var carts = await _context.Carts.AsNoTracking().Include(c => c.Products).Include(c => c.Customer)
+                .Select(p => new CartOutputDto
+                {
+                Id = p.Id,
+                CustomerId = p.CustomerId,
+                Quntity = p.Quntity,
+               
+                Products = p.Products.Select(C => new ProductOutPutDto { Name = C.Name, Description = C.Description }).ToList()
+            }).ToListAsync();
+
+            return carts ;
         }
 
-        public Task<GeneralDto<CartOutputDto>> GetById(int cartId)
+        public async Task<CartOutputDto> GetById(int cartId)
         {
-            throw new NotImplementedException();
+            var cart = await _context.Carts.FirstOrDefaultAsync(p => p.Id == cartId);
+            var output = new CartOutputDto
+            {
+
+                Id = cartId,
+                CustomerId = cart.CustomerId,
+                Quntity = cart.Quntity,
+
+            };
+            return output;
         }
 
-        public Task<GeneralDto<bool>> Update(CartEditDto cart)
+        public async Task<GeneralDto<bool>> Update(CartEditDto cart)
         {
-            throw new NotImplementedException();
+            var entity = _context.Carts.Find(cart.Id);
+            entity.Quntity = cart.Quntity;
+            entity.CustomerId = cart.CustomerId;
+            entity.IsPaied = cart.IsPaied;
+
+        
+
+            _context.Entry(entity).State = EntityState.Modified;
+            int number = await _context.SaveChangesAsync();
+            if (number == 0)
+            {
+                return new GeneralDto<bool> { Id = entity.Id, Data = false };
+            }
+            return new GeneralDto<bool> { Id = entity.Id, Data = true };
         }
     }
 }

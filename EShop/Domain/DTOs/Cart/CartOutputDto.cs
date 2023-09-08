@@ -1,4 +1,5 @@
-﻿using EShop.Domain.Entity;
+﻿using EShop.Domain.DTOs.Product;
+using EShop.Domain.Entity;
 
 namespace EShop.Domain.DTOs.Cart
 {
@@ -10,6 +11,6 @@ namespace EShop.Domain.DTOs.Cart
 
         public int CustomerId { get; set; }
 
-        public List<Product> Products { get; set; } = new List<Product>();
+        public List<ProductOutPutDto> Products { get; set; } = new List<ProductOutPutDto>();
     }
 }

@@ -12,6 +12,7 @@ public partial class Cart
     public int CustomerId { get; set; }
 
     public bool? IsPaied { get; set; }
+    public bool IsDeleted  { get; set; }   
 
     public virtual Customer? Customer { get; set; }
     public virtual ICollection<Product> Products { get; set; } = new List<Product>();
