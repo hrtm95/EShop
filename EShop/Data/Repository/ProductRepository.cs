@@ -44,10 +44,10 @@ public class ProductRepository : IProductRepository
         return new GeneralDto<bool> { Id = product.Id, Data = true };
 
     }
-
+    
     public async Task<List<ProductOutPutDto>> GetAll()
     {
-        var products = _context.Products.AsNoTracking().Include(c => c.Categories).Select(p => new ProductOutPutDto { 
+        var products = await _context.Products.AsNoTracking().Include(c => c.Categories).Select(p => new ProductOutPutDto { 
             Id = p.Id,
             Name = p.Name,
             Description = p.Description,
@@ -55,9 +55,9 @@ public class ProductRepository : IProductRepository
             CategoryId = p.CategoryId,
             Price = p.Price,
             Category = p.Categories.Select(C => new GeneralCategoryDto { Name = C.Name, Description = C.Description}).ToList(),
-        });
+        }).ToListAsync();
 
-        return products.ToList();
+        return products;
 
     }
 

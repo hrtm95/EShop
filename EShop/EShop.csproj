@@ -38,6 +38,8 @@
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\" />
+    <Folder Include="Domain\IServices\CustomerService\Queries\Services\" />
+    <Folder Include="Domain\Services\Product\Queries\" />
   </ItemGroup>
 
 </Project>
