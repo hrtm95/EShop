@@ -27,7 +27,7 @@ namespace EShop.Domain.Services.Product.Command
             try
             {
                 var product = await productRepository.GetById(productid);
-                var cart = (await cartRepository.GetAll()).Where(x => x.CustomerId == customerid).FirstOrDefault();
+                var cart = (await cartRepository.GetActiveCart(customerid));
                 if (cart != null)
                 {
                     if (cart.Products.Where(x => x.Id == productid).FirstOrDefault() != null)

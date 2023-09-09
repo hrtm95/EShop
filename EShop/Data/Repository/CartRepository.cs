@@ -88,5 +88,24 @@ namespace EShop.Data.Repository
             }
             return new GeneralDto<bool> { Id = entity.Id, Data = true };
         }
+
+        public async Task<CartOutputDto> GetActiveCart(int customerId)
+        {
+            var cart = await _context.Carts.FirstOrDefaultAsync(p => p.CustomerId == customerId &&  p.IsPaied == false);
+            if (cart == null)
+            {
+                var output = new CartOutputDto
+                {
+
+                    Id = cart.Id,
+                    CustomerId = cart.CustomerId,
+                    Quntity = cart.Quntity,
+
+                };
+                return output;
+            }
+            return null;
+           
+        }
     }
 }

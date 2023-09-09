@@ -10,5 +10,6 @@ namespace EShop.Domain.IRepositories
         Task<GeneralDto<bool>> Delete(int cartId);
         Task<CartOutputDto>GetById(int cartId);
         Task<List<CartOutputDto>> GetAll();
+        Task<CartOutputDto> GetActiveCart(int customerId);
     }
 }
