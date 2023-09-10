@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 namespace EShop.Data;
 
-public partial class EshopContext : IdentityDbContext<User, Role, string>
+public partial class EshopContext : IdentityDbContext<ApplicationUser, Role, string>
 {
     //public EshopContext()
     //{

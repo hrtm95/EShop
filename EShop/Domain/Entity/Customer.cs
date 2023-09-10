@@ -17,4 +17,7 @@ public partial class Customer
      
     public bool IsDeleted { get; set; }
     public virtual Cart IdNavigation { get; set; } = null!;
+
+    public string UserId { get; set; }
+    public ApplicationUser User { get; set; }
 }

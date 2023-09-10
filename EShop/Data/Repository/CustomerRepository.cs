@@ -17,7 +17,7 @@ namespace EShop.Data.Repository
             _context = context;
         }
 
-        public async Task<GeneralDto<bool>> Create(CustomerAddDto customerDto)
+        public async Task<GeneralDto<bool>> Create(CustomerAddDto customerDto , ApplicationUser user)
         {
 
             var customer = new Customer()
@@ -26,6 +26,8 @@ namespace EShop.Data.Repository
                 LastName = customerDto.LastName,
                 IsActive = true,
                 Address = customerDto.Address,
+                User = user,
+                UserId = user.Id
             };
             await _context.Customers.AddAsync(customer);
             await _context.SaveChangesAsync();

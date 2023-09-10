@@ -6,5 +6,6 @@ namespace EShop.Domain.IRepositories
     public interface IAdminRepository
     {
         Task<GeneralDto<bool>> Update(AdminEditDto dto);
+        Task<bool> IsExistAdmin(string personalCode);
     }
 }

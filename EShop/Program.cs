@@ -1,22 +1,26 @@
+using EShop;
 using EShop.Data;
-using EShop.Data.Repository;
 using EShop.Domain.Entity;
-using EShop.Domain.IRepositories;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Routing.Tree;
 using Microsoft.EntityFrameworkCore;
+
+
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddScoped<IProductRepository, ProductRepository>();
+
+
+
+var Injects = new InjectingStartUp();
+Injects.ConfigureServices(builder.Services);
 
 builder.Services.AddDbContext<EshopContext>(opt =>
 {
     opt.UseSqlServer("server=.;database=EShopOne;user id=sa;password=sks@1111;Trusted_Connection=True;TrustServerCertificate=True;Integrated Security = true;");
 });
-builder.Services.AddIdentity<User, Role>()
+builder.Services.AddIdentity<ApplicationUser, Role>()
 .AddEntityFrameworkStores<EshopContext>()
 .AddDefaultTokenProviders()
 .AddRoles<Role>();

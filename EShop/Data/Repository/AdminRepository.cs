@@ -28,5 +28,11 @@ namespace EShop.Data.Repository
             }
             return new GeneralDto<bool> { Id = entity.Id, Data = true };
         }
+
+        public async Task<bool> IsExistAdmin(string personalCode)
+        {
+            var admin =await _context.Admins.SingleOrDefaultAsync(a => a.PersonalCode == personalCode);
+            return (admin != null);
+        }
     }
 }
