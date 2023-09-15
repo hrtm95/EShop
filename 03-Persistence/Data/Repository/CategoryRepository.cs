@@ -1,9 +1,9 @@
-﻿using EShop.Domain.DTOs;
+﻿using _01_Domain.Contract.IRepositories;
+using EShop.Domain.DTOs;
 using EShop.Domain.DTOs.Cart;
 using EShop.Domain.DTOs.Category;
 using EShop.Domain.DTOs.Product;
 using EShop.Domain.Entity;
-using EShop.Domain.IRepositories;
 using Microsoft.EntityFrameworkCore;
 
 namespace EShop.Data.Repository

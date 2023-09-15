@@ -1,5 +1,5 @@
-﻿using EShop.Domain.IRepositories;
-using EShop.Domain.IServices.CartService.Command;
+﻿using _01_Domain.Contract.IRepositories;
+using _01_Domain.Contract.IServices.CartService.Command;
 
 namespace EShop.Domain.Services.CartService.Command
 {

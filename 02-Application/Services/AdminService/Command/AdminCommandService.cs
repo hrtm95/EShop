@@ -1,6 +1,6 @@
-﻿using EShop.Domain.DTOs;
-using EShop.Domain.IRepositories;
-using EShop.Domain.IServices.AdminService.Command;
+﻿using _01_Domain.Contract.IRepositories;
+using _01_Domain.Contract.IServices.AdminService.Command;
+using EShop.Domain.DTOs;
 
 namespace EShop.Domain.Services.AdminService.Command
 {

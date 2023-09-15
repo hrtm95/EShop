@@ -1,4 +1,4 @@
-﻿using EShop.Domain.IRepositories;
+﻿using _01_Domain.Contract.IRepositories;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EShop.Areas.Admin.Controllers

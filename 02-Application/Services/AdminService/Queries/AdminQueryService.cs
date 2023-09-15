@@ -1,4 +1,4 @@
-﻿using EShop.Domain.IServices.AdminService.Queries;
+﻿using _01_Domain.Contract.IServices.AdminService.Queries;
 
 namespace EShop.Domain.Services.AdminService.Queries
 {

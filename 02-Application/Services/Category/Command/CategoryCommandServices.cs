@@ -1,6 +1,6 @@
-﻿using EShop.Domain.DTOs.Category;
-using EShop.Domain.IRepositories;
-using EShop.Domain.IServices.CategoryService.Command;
+﻿using _01_Domain.Contract.IRepositories;
+using _01_Domain.Contract.IServices.CategoryService.Command;
+using EShop.Domain.DTOs.Category;
 
 namespace EShop.Domain.Services.Category.Command
 {

@@ -1,6 +1,6 @@
-﻿using EShop.Domain.DTOs.Customer;
-using EShop.Domain.IRepositories;
-using EShop.Domain.IServices.CustomerService.Command;
+﻿using _01_Domain.Contract.IRepositories;
+using _01_Domain.Contract.IServices.CustomerService.Command;
+using EShop.Domain.DTOs.Customer;
 
 namespace EShop.Domain.Services.CustomerService.Command
 {

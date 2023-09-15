@@ -1,5 +1,5 @@
-﻿using EShop.Domain.DTOs.Cart;
-using EShop.Domain.IServices.CartService.Queries;
+﻿using _01_Domain.Contract.IServices.CartService.Queries;
+using EShop.Domain.DTOs.Cart;
 
 namespace EShop.Domain.Services.CartService.Queries
 {

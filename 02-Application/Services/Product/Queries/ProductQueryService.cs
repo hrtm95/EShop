@@ -1,7 +1,7 @@
-﻿using EShop.Domain.DTOs.Product;
+﻿using _01_Domain.Contract.IRepositories;
+using _01_Domain.Contract.IServices.ProductService.Queries;
+using EShop.Domain.DTOs.Product;
 using EShop.Domain.Entity;
-using EShop.Domain.IRepositories;
-using EShop.Domain.IServices.ProductService.Queries;
 
 namespace EShop.Domain.Services.Product.Queries
 {

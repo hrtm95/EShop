@@ -1,8 +1,8 @@
-﻿using EShop.Domain.DTOs.Cart;
+﻿using _01_Domain.Contract.IRepositories;
+using _01_Domain.Contract.IServices.ProductService.Commands;
+using EShop.Domain.DTOs.Cart;
 using EShop.Domain.DTOs.Product;
 using EShop.Domain.Entity;
-using EShop.Domain.IRepositories;
-using EShop.Domain.IServices.ProductService.Commands;
 using System.Net.Http.Headers;
 
 namespace EShop.Domain.Services.Product.Command
