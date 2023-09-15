@@ -1,0 +1,32 @@
+﻿@using EShop.Domain.DTOs.Product;
+@model ProductOutPutDto
+
+
+<div class="row">
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.Name)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.Name)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.Description)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.Description)
+    </dd> 
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.Price)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.Price)
+    </dd> 
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.Quntity)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.Quntity)
+    </dd>
+
+</div>
+

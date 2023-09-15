@@ -8,5 +8,6 @@ namespace _01_Domain.Contract.IServices.ProductService.Queries
         Task<List<ProductOutPutDto>> GetAllProducts();
         Task<List<ProductOutPutDto>> GetProductsByCategoryId(int categoryId);
         Task<List<ProductOutPutDto>> SeachInProduct(string name);
+        Task <ProductOutPutDto> GetById(int productId);
     }
 }

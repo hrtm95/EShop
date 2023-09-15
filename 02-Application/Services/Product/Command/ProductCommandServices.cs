@@ -130,9 +130,10 @@ namespace EShop.Domain.Services.Product.Command
             return false;
         }
 
-        public Task<bool> EditeProduct(ProductEditDto product)
+        public async Task<bool> EditeProduct(ProductEditDto product)
         {
-           throw new NotImplementedException();
+          var result =  await productRepository.Update(product);
+            return result.Data;    
         }
     }
 }

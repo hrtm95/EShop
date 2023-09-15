@@ -47,7 +47,7 @@ public class ProductRepository : IProductRepository
     
     public async Task<List<ProductOutPutDto>> GetAll()
     {
-        var products = await _context.Products.AsNoTracking().Include(c => c.Categories).Select(p => new ProductOutPutDto { 
+        var products = await _context.Products.AsNoTracking().Include(c => c.Categories).Where(x => x.IsDeleted ==false).Select(p => new ProductOutPutDto { 
             Id = p.Id,
             Name = p.Name,
             Description = p.Description,

@@ -24,10 +24,10 @@
                 <td>@Html.DisplayFor(modelitem => item.Price)</td>
                 <td>@Html.DisplayFor(modelitem => item.Quntity)</td>
                 <td>
-                    <a asp-action="Edit" class="btn btn-success">ویرایش</a>
-                    <a asp-action="Detail"  class="btn btn-info">توضیحات بیشتر</a>
-                    <a asp-action="Delete" class="btn btn-danger">حذف</a>
-                    <a asp-action="AddToCart" class="btn btn-danger">افزودن به سبد خرید</a>
+                    <a asp-action="Edit" asp-route-Id="@item.Id" class="btn btn-success">ویرایش</a>
+                    <a asp-action="Detail" asp-route-Id="@item.Id" class="btn btn-info">توضیحات بیشتر</a>
+                    <a asp-action="Delete" asp-route-Id="@item.Id" class="btn btn-danger">حذف</a>
+                    <a asp-action="AddToCart" asp-route-Id="@item.Id" class="btn btn-danger">افزودن به سبد خرید</a>
                 </td>
             </tr>
         }

@@ -26,6 +26,16 @@ namespace EShop.Domain.Services.Product.Queries
             return null;
         }
 
+        public async Task<ProductOutPutDto?> GetById(int productId)
+        {
+            var Product = await productRepository.GetById(productId);
+            if (Product != null)
+            {
+                return Product;
+            }
+            return default;
+        }
+
         public async Task<List<ProductOutPutDto>> GetProductsByCategoryId(int categoryId)
         {
             var products = (await productRepository.GetAll()).Where(x => x.CategoryId == categoryId).ToList();
