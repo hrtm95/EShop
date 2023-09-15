@@ -8,13 +8,9 @@
 
   <ItemGroup>
     <Compile Remove="Areas\**" />
-    <Compile Remove="Data\Repositories\**" />
     <Content Remove="Areas\**" />
-    <Content Remove="Data\Repositories\**" />
     <EmbeddedResource Remove="Areas\**" />
-    <EmbeddedResource Remove="Data\Repositories\**" />
     <None Remove="Areas\**" />
-    <None Remove="Data\Repositories\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -33,7 +29,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.9" />
     <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.10" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="7.0.10" />
@@ -54,7 +49,6 @@
   <ItemGroup>
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Domain\IServices\CustomerService\Queries\Services\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -148,6 +142,12 @@
     <None Include="wwwroot\dist\js\plugins\popper\umd\popper.js.map" />
     <None Include="wwwroot\dist\js\plugins\popper\umd\popper.min.js" />
     <None Include="wwwroot\dist\js\plugins\popper\umd\popper.min.js.map" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\01-Domain\01-Domain.csproj" />
+    <ProjectReference Include="..\02-Application\02-Application.csproj" />
+    <ProjectReference Include="..\03-Persistence\03-Persistence.csproj" />
   </ItemGroup>
 
 </Project>

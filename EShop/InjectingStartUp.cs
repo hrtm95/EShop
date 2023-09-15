@@ -1,4 +1,4 @@
-﻿using EShop.Application.Services.RoleService;
+﻿
 using EShop.Application.Services.UserService;
 using EShop.Data.Repository;
 using EShop.Domain.IRepositories;
@@ -12,8 +12,6 @@ using EShop.Domain.IServices.CustomerService.Command;
 using EShop.Domain.IServices.CustomerService.Queries;
 using EShop.Domain.IServices.ProductService.Commands;
 using EShop.Domain.IServices.ProductService.Queries;
-using EShop.Domain.IServices.RoleService;
-using EShop.Domain.IServices.UserService;
 using EShop.Domain.Services.AdminService.Command;
 using EShop.Domain.Services.AdminService.Queries;
 using EShop.Domain.Services.CartService.Command;
@@ -58,8 +56,7 @@ namespace EShop
             services.AddScoped<IProductCommandService, ProductCommandServices>();
             services.AddScoped<IProductQueryService, ProductQueryService>();
 
-            services.AddScoped<IRoleService, RoleService>();
-            services.AddScoped<IUserService, UserService>();
+          
 
         }
     }
