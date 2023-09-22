@@ -48,13 +48,17 @@ public class ProductRepository : IProductRepository
     
     public async Task<List<ProductOutPutDto>> GetAll()
     {
-        var products = await _context.Products.AsNoTracking().Include(c => c.Categories).Where(x => x.IsDeleted ==false).Select(p => new ProductOutPutDto { 
+        var products = await _context.Products.AsNoTracking()
+            .Include(c => c.Categories)
+            .Where(x => x.IsDeleted ==false)
+            .Select(p => new ProductOutPutDto { 
             Id = p.Id,
             Name = p.Name,
             Description = p.Description,
             Quntity = p.Quntity,
             CategoryId = p.CategoryId,
             Price = p.Price,
+            Pictures = p.Pictures.Select(c=> new PictureOutPutDto {Id = c.Id ,LinkAddress = c.LinkAddress,ProductId = c.ProductId}).ToList(),
             Category = p.Categories.Select(C => new GeneralCategoryDto { Name = C.Name, Description = C.Description}).ToList(),
         }).ToListAsync();
 
