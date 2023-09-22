@@ -62,7 +62,20 @@
 @import url('http://fonts.googleapis.com/css?family=Vidaloka');
 @import url('http://fonts.googleapis.com/earlyaccess/droidarabickufi.css');
 
+@font-face {
+    font-family: 'IranSance';
+    src: url('../fonts/Iranian\ Sans.ttf') format('ttf'), url('../Fonts/Iranian\ Sans.ttf') format('truetype');
+}
 
+@font-face {
+    font-family: 'Byekan';
+    src: url('../fonts/Yekan.ttf') format('ttf'), url('../Fonts/Yekan.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Vazir';
+    src: url('../fonts/Vazir-Bold.ttf') format('ttf'), url('../Fonts/Vazir-Bold.ttf') format('truetype');
+}
 /* 1.1 */
 /* Preloader
 /* ========================================================================== */
@@ -148,7 +161,7 @@
 /* ========================================================================== */
 body {
     direction: rtl;
-    font-family:'Droid Arabic Kufi','Lato', sans-serif;
+    font-family: Vazir;
     font-size: 14px;
     line-height: 1.72;
     background: #ffffff;
@@ -1907,7 +1920,7 @@ input[type=checkbox] {
     }
 }
 .main-slider .alt .caption-title {
-    font-family: "Droid Arabic Kufi", 'Vidaloka', serif;
+    font-family: Vazir;
     font-size: 16px;
     font-weight: 500;
     line-height: 20px;
@@ -1924,7 +1937,7 @@ input[type=checkbox] {
     }
 }
 .main-slider .alt .caption-subtitle {
-    font-family: "Droid Arabic Kufi", 'Vidaloka', serif;
+    font-family: Vazir;
     font-size: 36px;
     font-weight: 500;
     line-height: 46px;
@@ -1983,7 +1996,7 @@ input[type=checkbox] {
     bottom: 0;
 }
 .main-slider .alt .price {
-    font-family: "Droid Arabic Kufi", 'Vidaloka', serif;
+    font-family: Vazir;
     margin-bottom: 25px;
     color: #232323;
 }
@@ -2069,7 +2082,7 @@ input[type=checkbox] {
     }
 }
 .main-slider .dark .caption-title {
-    font-family: "Droid Arabic Kufi", 'Vidaloka', serif;
+    font-family: Vazir;
     font-size: 16px;
     font-weight: 500;
     line-height: 20px;
@@ -2090,7 +2103,7 @@ input[type=checkbox] {
     }
 }
 .main-slider .dark .caption-subtitle {
-    font-family: "Droid Arabic Kufi", 'Vidaloka', serif;
+    font-family: Vazir;
     font-size: 36px;
     font-weight: 500;
     line-height: 46px;
@@ -2166,7 +2179,7 @@ input[type=checkbox] {
     }
 }
 .main-slider .sub .caption-title {
-    font-family: "Droid Arabic Kufi", 'Vidaloka', serif;
+    font-family: Vazir;
     font-style: italic;
     font-size: 44px;
     font-weight: 400;
@@ -2187,7 +2200,7 @@ input[type=checkbox] {
     }
 }
 .main-slider .sub .caption-subtitle {
-    font-family: "Droid Arabic Kufi", 'Vidaloka', serif;
+    font-family: Vazir;
     font-size: 44px;
     font-weight: 400;
     line-height: 50px;
@@ -3928,7 +3941,7 @@ input[type=checkbox] {
     background-color: rgba(137, 193, 68, 0);
 }
 .thumbnail-banner.alt-font .caption-title {
-    font-family: "Droid Arabic Kufi", 'Vidaloka', serif;
+    font-family: Vazir;
     font-style: italic;
     font-weight: 400;
     font-size: 24px;
@@ -3939,7 +3952,7 @@ input[type=checkbox] {
     background-color: rgba(255, 255, 255, 0.3);
 }
 .thumbnail-banner.alt-font .caption-sub-title {
-    font-family: "Droid Arabic Kufi", 'Vidaloka', serif;
+    font-family: Vazir;
     font-weight: 400;
     font-size: 18px;
 }
@@ -5959,10 +5972,10 @@ input[type=checkbox] {
 .wishlist td.total a:hover {
     color: #89c144;
 }
-.wishlist td.total a .fa-close:before {
-    font-family: "Droid Arabic Kufi", 'Lato', sans-serif;
-    content: 'X';
-}
+    .wishlist td.total a .fa-close:before {
+        font-family: Vazir;
+        content: 'X';
+    }
 .wishlist .media-link {
     padding: 0;
     display: block;
