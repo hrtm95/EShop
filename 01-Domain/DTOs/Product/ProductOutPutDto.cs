@@ -1,4 +1,5 @@
 ﻿using EShop.Domain.DTOs.Category;
+using EShop.Domain.DTOs.Picture;
 using EShop.Domain.Entity;
 
 namespace EShop.Domain.DTOs.Product
@@ -17,5 +18,7 @@ namespace EShop.Domain.DTOs.Product
 
         public int? Quntity { get; set; }
         public List<GeneralCategoryDto> Category { get; set; }
-}
+
+        public List<PictureOutPutDto> Pictures { get; set; }
+    }
 }

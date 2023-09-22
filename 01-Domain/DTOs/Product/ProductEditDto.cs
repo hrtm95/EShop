@@ -1,4 +1,6 @@
-﻿namespace EShop.Domain.DTOs.Product
+﻿using EShop.Domain.DTOs.Picture;
+
+namespace EShop.Domain.DTOs.Product
 {
     public class ProductEditDto
     {
@@ -13,5 +15,7 @@
         public int CategoryId { get; set; }
 
         public int? Quntity { get; set; }
+
+        public List<PictureOutPutDto> pictureOutPuts{ get; set; }
     }
 }

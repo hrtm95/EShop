@@ -2,7 +2,7 @@
 {
     public class PictureAddDto
     {
-        public string? LinsAddress { get; set; }
+        public string? LinkAddress { get; set; }
 
         public int? ProductId { get; set; }
     }

@@ -237,7 +237,7 @@ namespace _03_Persistence.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("LinsAddress")
+                    b.Property<string>("LinkAddress")
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 

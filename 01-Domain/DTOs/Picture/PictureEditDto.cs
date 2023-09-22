@@ -4,6 +4,6 @@
     {
         public int Id { get; set; }
 
-        public string? LinsAddress { get; set; }
+        public string? LinkAddress { get; set; }
     }
 }

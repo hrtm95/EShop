@@ -1,4 +1,5 @@
 ﻿using EShop.Domain.DTOs;
+using EShop.Domain.DTOs.Picture;
 using EShop.Domain.DTOs.Product;
 
 namespace _01_Domain.Contract.IRepositories
@@ -10,5 +11,6 @@ namespace _01_Domain.Contract.IRepositories
         Task<GeneralDto<bool>> Delete(int productId);
         Task<ProductOutPutDto> GetById(int productId);
         Task<List<ProductOutPutDto>> GetAll();
+        Task<List<PictureOutPutDto>> GetPictureByProductId(int id);
     }
 }

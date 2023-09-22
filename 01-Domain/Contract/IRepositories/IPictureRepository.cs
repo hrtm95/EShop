@@ -9,7 +9,7 @@ namespace _01_Domain.Contract.IRepositories
         Task<GeneralDto<bool>> Create(PictureAddDto picture);
         Task<GeneralDto<bool>> Update(PictureEditDto picture);
         Task<GeneralDto<bool>> Delete(int pictureId);
-        Task<GeneralDto<PictureOutPutDto>> GetById(int pictureId);
-        Task<GeneralDto<List<PictureOutPutDto>>> GetAll();
+        Task<PictureOutPutDto> GetById(int pictureId);
+        Task<List<PictureOutPutDto>> GetAll();
     }
 }

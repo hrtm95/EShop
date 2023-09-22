@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <Folder Include="Contract\IServices\CustomerService\Queries\Services\" />
+    <Folder Include="Contract\IServices\FileService\" />
   </ItemGroup>
 
   <ItemGroup>

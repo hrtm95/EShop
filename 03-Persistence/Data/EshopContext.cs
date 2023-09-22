@@ -98,7 +98,7 @@ public partial class EshopContext : IdentityDbContext<ApplicationUser, Role, str
             entity.ToTable("Pictures");
 
             //entity.Property(e => e.Id).ValueGeneratedNever();
-            entity.Property(e => e.LinsAddress).HasMaxLength(250);
+            entity.Property(e => e.LinkAddress).HasMaxLength(250);
 
             entity.HasOne(d => d.Product).WithMany(p => p.Pictures)
                 .HasForeignKey(d => d.ProductId)

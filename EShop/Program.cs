@@ -18,7 +18,7 @@ Injects.ConfigureServices(builder.Services);
 
 builder.Services.AddDbContext<EshopContext>(opt =>
 {
-    opt.UseSqlServer("server=.;database=EShopOne;user id=sa;password=sks@1111;Trusted_Connection=True;TrustServerCertificate=True;Integrated Security = true;");
+    opt.UseSqlServer("server=DESCTOP\\SQLEXPRESS;database=EShopOne;Trusted_Connection=True;TrustServerCertificate=True;Integrated Security = true;");
 });
 builder.Services.AddIdentity<ApplicationUser, Role>()
 .AddEntityFrameworkStores<EshopContext>()

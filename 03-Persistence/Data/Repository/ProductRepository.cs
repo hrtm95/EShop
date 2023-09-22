@@ -1,6 +1,7 @@
 ﻿using _01_Domain.Contract.IRepositories;
 using EShop.Domain.DTOs;
 using EShop.Domain.DTOs.Category;
+using EShop.Domain.DTOs.Picture;
 using EShop.Domain.DTOs.Product;
 using EShop.Domain.Entity;
 using Microsoft.EntityFrameworkCore;
@@ -72,8 +73,21 @@ public class ProductRepository : IProductRepository
             Quntity = product.Quntity,
             CategoryId = product.CategoryId,
             Price = product.Price,
+            Pictures = product.Pictures.Select(p => new PictureOutPutDto
+            {
+                Id = p.Id,
+                LinkAddress = p.LinkAddress,
+                ProductId = p.ProductId
+            }).ToList()
+        
         };
         return output;
+    }
+
+    public async Task<List<PictureOutPutDto>> GetPictureByProductId(int id)
+    {
+        var Product = await GetById(id);
+        return Product.Pictures;
     }
 
     public async Task<GeneralDto<bool>> Update(ProductEditDto productdto)
@@ -94,4 +108,10 @@ public class ProductRepository : IProductRepository
         }
         return new GeneralDto<bool> { Id = entity.Id, Data = true };
     }
+
+
+
+
+
+
 }
