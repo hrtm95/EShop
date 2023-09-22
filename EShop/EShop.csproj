@@ -53,6 +53,27 @@
   <ItemGroup>
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <None Include="Areas\Admin\Views\Shared\_Layout.cshtml.css" />
+    <None Include="wwwroot\assets\js\theme-ajax-mail.js" />
+    <None Include="wwwroot\assets\js\theme-config.js" />
+    <None Include="wwwroot\assets\js\theme.js" />
+    <None Include="wwwroot\assets\plugins\bootstrap-select\js\bootstrap-select.min.js" />
+    <None Include="wwwroot\assets\plugins\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <None Include="wwwroot\assets\plugins\bootstrap\js\bootstrap.min.js" />
+    <None Include="wwwroot\assets\plugins\countdown\jquery.countdown.min.js" />
+    <None Include="wwwroot\assets\plugins\countdown\jquery.plugin.min.js" />
+    <None Include="wwwroot\assets\plugins\fontawesome\fonts\fontawesome-webfont78ce.svg" />
+    <None Include="wwwroot\assets\plugins\isotope\jquery.isotope.min.js" />
+    <None Include="wwwroot\assets\plugins\jquery-ui\jquery-ui.min.js" />
+    <None Include="wwwroot\assets\plugins\jquery.cookie.js" />
+    <None Include="wwwroot\assets\plugins\jquery.easing.min.js" />
+    <None Include="wwwroot\assets\plugins\jquery.smoothscroll.min.js" />
+    <None Include="wwwroot\assets\plugins\jquery.sticky.min.js" />
+    <None Include="wwwroot\assets\plugins\jquery\jquery-1.11.1.min.js" />
+    <None Include="wwwroot\assets\plugins\modernizr.custom.js" />
+    <None Include="wwwroot\assets\plugins\owl-carousel2\owl.carousel.min.js" />
+    <None Include="wwwroot\assets\plugins\prettyphoto\js\jquery.prettyPhoto.js" />
+    <None Include="wwwroot\assets\plugins\smooth-scrollbar.min.js" />
+    <None Include="wwwroot\assets\plugins\superfish\js\superfish.min.js" />
     <None Include="wwwroot\dist\css\adminlte.css.map" />
     <None Include="wwwroot\dist\fonts\Vazir-Black.woff2" />
     <None Include="wwwroot\dist\fonts\Vazir-Bold.woff2" />
